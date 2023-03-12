@@ -100,4 +100,20 @@ class ConvertHandler {
   }
 }
 
-module.exports = ConvertHandler;
+let converter = new ConvertHandler();
+
+try {
+  const [initNum, initUnit] = converter.splitInput('3l');
+  const returnNum = converter.convert(initNum, initUnit);
+  const returnUnit = converter.getReturnUnit(initUnit);
+  const string = converter.getString(initNum, initUnit, returnNum, returnUnit);
+  console.dir({
+    initNum,
+    initUnit,
+    returnNum,
+    returnUnit,
+    string,
+  });
+} catch (err) {
+  console.log(err.message);
+}

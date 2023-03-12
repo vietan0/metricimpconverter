@@ -83,6 +83,7 @@
             type: 'get',
             data: $('#convertForm').serialize(),
             success: function (data) {
+              console.dir('data from server :>> ', data);
               $('#result').text(data.string || data);
               $('#jsonResult').text(JSON.stringify(data));
             },
